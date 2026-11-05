@@ -1,0 +1,91 @@
+{
+  "info": {
+    "_postman_id": "cb047b1f-620e-42e6-8bdf-4ba62908a3e6",
+    "name": "Serverest-API-Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "27529624",
+    "_collection_link": "https://go.postman.co/collection/27529624-cb047b1f-620e-42e6-8bdf-4ba62908a3e6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "POST - Login com Sucesso",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Teste 1: Valida se o Status Code é 401",
+              "pm.test(\"Status code é 401 Unauthorized\", function () {",
+              "    pm.response.to.have.status(401);",
+              "});",
+              "",
+              "// Teste 2: Valida a mensagem exata do JSON",
+              "pm.test(\"Validar mensagem de erro no corpo da resposta\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.message).to.eql(\"Email e/ou senha inválidos\");",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"fulano@qa.com\",\n  \"password\": \"teste\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://serverest.dev/login",
+          "protocol": "https",
+          "host": [
+            "serverest",
+            "dev"
+          ],
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Caminho Feliz com Token JWT",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Lucas QA\",\n  \"email\": \"lucas.qa.teste1@qa.com\",\n  \"password\": \"senhaSegura123\",\n  \"administrador\": \"true\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://serverest.dev/usuarios",
+          "protocol": "https",
+          "host": [
+            "serverest",
+            "dev"
+          ],
+          "path": [
+            "usuarios"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
