@@ -16,3 +16,9 @@ Este diretório contém a suíte de automação de testes End-to-End (E2E) desen
    ```bash
    cd 04-automacao-cypress# Automação de Testes Web E2E com Cypress
 Esta pasta conterá a suíte automatizada em Cypress e JavaScript aplicando o padrão Page Object Model (POM).
+
+## 📸 Evidência de Execução dos Testes Automatizados
+
+![Execução do Cypress com Sucesso](evidencias/cypress-sucesso.png)
+
+*Figura 1: Suíte de testes E2E executada no Cypress com 100% de sucesso (Status PASS).*
